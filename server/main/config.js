@@ -1,9 +1,10 @@
 "use strict";
 
-var mongoose    = require('mongoose'),
-    morgan      = require('morgan'),
-    bodyParser  = require('body-parser'),
-    middle      = require('./middleware');
+var bodyParser    = require('body-parser'),
+    cookieParser  = require('cookie-parser'),
+    middle        = require('./middleware'),
+    mongoose      = require('mongoose'),
+    morgan        = require('morgan');
 
 mongoose.connect(process.env.DB_URL || 'mongodb://localhost/myApp');
 /*
@@ -12,11 +13,13 @@ mongoose.connect(process.env.DB_URL || 'mongodb://localhost/myApp');
 module.exports = exports = function (app, express, routers) {
   app.set('port', process.env.PORT || 9000);
   app.set('base url', process.env.URL || 'http://localhost');
+  app.use(cookieParser("secret"));
   app.use(morgan('dev'));
   app.use(bodyParser());
   app.use(middle.cors);
   app.use(express.static(__dirname + '/../../client'));
-  app.use('/note', routers.NoteRouter);
+  app.use('/login', routers.LoginRouter);
+  app.use('/note' , routers.NoteRouter);
   app.use(middle.logError);
   app.use(middle.handleError);
 };
