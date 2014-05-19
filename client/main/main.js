@@ -1,6 +1,6 @@
 (function (angular) {
   "use strict";
-  angular.module('myApp.main', ['ui.router', 'myApp.main.note'])
+  angular.module('myApp.main', ['ui.router', 'myApp.main.login'])
   .config(function ($stateProvider) {
     $stateProvider
       .state('myApp.main', {
@@ -10,6 +10,6 @@
       });
   })
   .controller('MainController', function ($state) {
-    $state.transitionTo('myApp.main.note');
+    $state.transitionTo('myApp.main');
   });
 }(angular));

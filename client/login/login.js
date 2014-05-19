@@ -1,11 +1,11 @@
-angular.module('myApp.main.note', ['ui.router'])
+angular.module('myApp.main.login', ['ui.router'])
 
 .config(function ($stateProvider) {
 
   $stateProvider
-    .state('myApp.main.note', {
-      url: '/notes',
-      templateUrl: 'note/note.tpl.html',
+    .state('myApp.main.login', {
+      url: '/login',
+      templateUrl: 'login/login.tpl.html',
       controller: 'NoteController'
     });
 })

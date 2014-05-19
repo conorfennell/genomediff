@@ -12,7 +12,7 @@ module.exports = exports = {
         client_id     : '4bb5ab70105c7a37223fd72585df3f2c',
         client_secret : '4a7821824be46fdbd05216b7284cd70c',
         code          : req.param('code'),
-        redirect_uri  : 'http://localhost:1234/receive_code/',
+        redirect_uri  : 'http://localhost:9000/login/receive_code/',
         scope         : 'basic analyses'
       }
     }, function(error, response, body) {
