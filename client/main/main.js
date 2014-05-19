@@ -1,6 +1,6 @@
 (function (angular) {
   "use strict";
-  angular.module('myApp.main', ['ui.router', 'myApp.main.login'])
+  angular.module('myApp.main', ['ui.router', 'myApp.main.login', 'myApp.main.compare'])
   .config(function ($stateProvider) {
     $stateProvider
       .state('myApp.main', {
