@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "dependencies": {
     "bootstrap-css-only": "*",
-    "angular": "*" ,
-    "angular-cookies": "*",
+    "angular": "*",
+    "angular-cookies": "~1.2.16",
     "ng-Fx": "*",
     "angular-ui-router": "*"
   }
 }
-

@@ -17,4 +17,7 @@ module.exports = exports = function (router) {
 
   router.route('/traits/')
     .get(controller.getTraits);
+
+  router.route('/drug_responses/')
+    .get(controller.getDrugResponses);
 };

@@ -1,6 +1,31 @@
-<div class="container-fluid">
-  <h2>Login</h2>
+<div class='container-fluid'>
+  <h1> login </h1>
   <section>
-    {{ documents }}
+    {{ name }}
+
+
+  <div>
+    <input ng-model='query' type='text' placeholder="Filter by">
+    <div ng-repeat='risk in risks | filter:{ description : query}'>
+      {{risk.description}}
+      {{risk.population_risk}}
+      {{risk.risk}}
+    </div>
+  </div>
+
+
+
+
+
+
+<ul ui-sortable ng-model="items">
+  <li ng-repeat="risk in risks">{{ risk.description }}</li>
+</ul>
+  <div>
+    <div ng-repeat='carrier in carriers'>
+      {{carrier.description}}
+      {{carrier.mutations}}
+    </div>
+  </div>
   </section>
 </div>

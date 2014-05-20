@@ -1,6 +1,7 @@
 (function (angular) {
   "use strict";
   angular.module('myApp', [
+    'ngCookies',
     'ui.router',
     'ngAnimate',
     'fx.animations'
@@ -16,6 +17,3 @@
     $state.transitionTo('myApp.main');
   });
 }(angular));
-
-
-
