@@ -1,7 +1,17 @@
 <div class="container-fluid">
-  <h2>Login</h2>
   <section>
-    <a href="https://api.23andme.com/authorize/?redirect_uri=http://localhost:9000/login/receive_code/&response_type=code&client_id=4bb5ab70105c7a37223fd72585df3f2c&scope=basic analyses names ancestry">Connect with 23andMe
+
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
+  <button ng-show='showFirstButton'>
+    <a href="https://api.23andme.com/authorize/?redirect_uri=http://localhost:9000/login/receive_code/&response_type=code&client_id=4bb5ab70105c7a37223fd72585df3f2c&scope=basic analyses names ancestry">
+      Connect User to 23andMe
     </a>
+  </button>
+  </div>
+  <button ng-show='showSecondButton'>
+    <a href="https://api.23andme.com/authorize/?redirect_uri=http://localhost:9000/login/receive_code/&response_type=code&client_id=4bb5ab70105c7a37223fd72585df3f2c&scope=basic analyses names ancestry">
+      Connect second User to 23andMe
+    </a>
+  </button>
   </section>
 </div>

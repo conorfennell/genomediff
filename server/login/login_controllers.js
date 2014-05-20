@@ -21,8 +21,7 @@ module.exports = exports = {
       } else {
         res.cookie('token2', JSON.parse(body).access_token, { maxAge: 3000000 });
       }
-      res.json(JSON.parse(body));
-      res.end();
+      res.redirect('/#/main/login');
     });
   }
 };

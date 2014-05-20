@@ -10,6 +10,6 @@
       });
   })
   .controller('MainController', function ($state) {
-    $state.transitionTo('myApp.main');
+    $state.transitionTo('myApp.main.login');
   });
 }(angular));

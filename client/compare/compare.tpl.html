@@ -7,56 +7,6 @@
     </button>
     <img ng-show="showSpinner" src='styles/spinner.gif'> </gif>
 
-  <!-- <table ng-show="showTable">
-    <tr>
-      <th> Disease Risk</th>
-      <th> Inherited Conditions</th>
-    </tr>
-    <tr>
-      <td>
-        <table cellspacing='0'>
-          <thead>
-            <tr>
-              <th> Description </th>
-              <th> {{ user1.name }} Risk </th>
-              <th> {{ user2.name }} Risk </th>
-              <th> Compared </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat='rask in combined.risks'>
-              <td class={{rask.firstWins}}>{{rask.description}}</td>
-              <td class={{rask.firstWins}}>{{rask.firstRisk * 100  | number : 2 }}%</td>
-              <td class={{rask.firstWins}}>{{rask.secondRisk * 100 | number : 2 }}%</td>
-              <td class={{rask.firstWins}}>{{rask.firstWins}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-      <td>
-        <table cellspacing='0'>
-          <thead>
-            <tr>
-              <th> Description </th>
-              <th> {{ user1.name }} </th>
-              <th> {{ user2.name }} </th>
-              <th> Compared </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat='carrier in combined.carriers'>
-              <td class={{carrier.firstWins}}>{{carrier.description}}</td>
-              <td class={{carrier.firstWins}}>{{carrier.firstMutations }}</td>
-              <td class={{carrier.firstWins}}>{{carrier.secondMutations }}</td>
-              <td class={{carrier.firstWins}}>{{carrier.firstWins}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </table> -->
-  <!-- close="closeAlert($index)" -->
-
   <div ng-show="showTable">
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
   </div>
