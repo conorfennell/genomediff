@@ -83,6 +83,7 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
     var diseaseMessage = {};
     var carrierMessage = {};
+    var neanderthalMessage = {};
 
     if(riskCount < 0) {
       diseaseMessage.type = 'success';
@@ -103,8 +104,18 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     } else {
       carrierMessage.msg = ' Both have the same number of inherited conditions'
     }
+    if (+$user1.neanderthal.proportion > +$user2.neanderthal.proportion) {
+      var diff = +$user1.neanderthal.proportion - +$user2.neanderthal.proportion;
+      neanderthalMessage.msg = $user1.name + ' has ' + (diff*100).toFixed(2) + '% more neanderthal dna then ' + $user2.name;
+    } else  if (+$user1.neanderthal.proportion < +$user2.neanderthal.proportion) {
+      diff = +$user2.neanderthal.proportion - +$user2.neanderthal.proportion;
+      neanderthalMessage.msg = $user2.name + ' has ' + (diff*100).toFixed(2) + '% more neanderthal dna then ' + $user1.name;
+    } else{
+      neanderthalMessage.msg = $user2.name + ' has  the same %  of neanderthal dna as ' + $user1.name;
 
+    }
 
+    $scope.addAlert(neanderthalMessage);
     $scope.addAlert(diseaseMessage);
     $scope.addAlert(carrierMessage);
 
@@ -121,6 +132,7 @@ var endPoints = {
   risks          : '/user/risks/',
   carriers       : '/user/carriers/',
   drug_responses : '/user/drug_responses/',
+  neanderthal    : '/user/neanderthal/',
   traits         : '/user/traits/'
 };
 
@@ -162,6 +174,11 @@ var getUserData = function(token, $http, $user, $scope){
       $http.get(endPoints.drug_responses + '?token=' + token + '&profileId=' + profileId  )
         .then(function(result){
           $user.drug_responses = result.data.drug_responses;
+        });
+
+      $http.get(endPoints.neanderthal + '?token=' + token + '&profileId=' + profileId  )
+        .then(function(result){
+          $user.neanderthal = result.data.neanderthal;
         });
 
       $http.get(endPoints.traits + '?token=' + token + '&profileId=' + profileId  )

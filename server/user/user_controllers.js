@@ -84,5 +84,19 @@ module.exports = exports = {
       res.json(JSON.parse(body));
       res.end();
     });
+  },
+  getNeanderthal : function(req, res, next) {
+    var profileId = req.param('profileId') + '/';
+    request.get({
+      url     : 'https://api.23andme.com/1/neanderthal/' + profileId,
+      headers : {
+        'Authorization' : 'Bearer ' + req.param('token')
+      }
+    }, function(error, response, body) {
+      debugger;
+      console.log(error, body);
+      res.json(JSON.parse(body));
+      res.end();
+    });
   }
 };

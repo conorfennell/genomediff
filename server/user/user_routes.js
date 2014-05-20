@@ -20,4 +20,7 @@ module.exports = exports = function (router) {
 
   router.route('/drug_responses/')
     .get(controller.getDrugResponses);
+
+  router.route('/neanderthal/')
+    .get(controller.getNeanderthal);
 };
