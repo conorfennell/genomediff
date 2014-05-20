@@ -1,4 +1,4 @@
-angular.module('myApp.main.compare', ['ui.router', 'ngCookies'])
+angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
 
 .config(function ($stateProvider) {
 
@@ -18,6 +18,18 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies'])
   $scope.user2 = {};
 
 
+  $scope.alerts = [
+
+  ];
+
+  $scope.addAlert = function(msg) {
+    $scope.alerts.push(msg);
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+
   $scope.combine = function($user1, $user2) {
     $scope.combined = {};
     $scope.combined.firstUser  = $user1.name;
@@ -25,13 +37,17 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies'])
     $scope.combined.risks = [];
     $scope.combined.carriers = [];
     var risk;
+    var riskCount = 0;
+    var carrierCount = 0;
 
     for (var i = 0; i < $user1.risks.length; i++) {
       var firstWins = 'Equal';
       if(+$user1.risks[i].risk > +$user2.risks[i].risk) {
         firstWins = 'Higher';
+        riskCount++;
       } else if(+$user1.risks[i].risk < +$user2.risks[i].risk) {
         firstWins = 'Less';
+        riskCount--;
       }
 
       risk = {
@@ -43,12 +59,15 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies'])
       };
       $scope.combined.risks.push(risk);
     }
+    $scope.combine.riskCount = riskCount;
     for (var i = 0; i < $user1.carriers.length - 1; i++) {
       var firstWins = 'Equal';
       if(+$user1.carriers[i].mutations > +$user2.carriers[i].mutations) {
         firstWins = 'Higher';
+        carrierCount++;
       } else if(+$user1.carriers[i].mutations < +$user2.carriers[i].mutations) {
         firstWins = 'Less';
+        carrierCount--;
       }
 
       carrier = {
@@ -60,6 +79,32 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies'])
       $scope.combined.carriers.push(carrier);
     }
 
+    var diseaseMessage = {};
+    var carrierMessage = {};
+
+    if(riskCount < 0) {
+      diseaseMessage.type = 'success';
+      diseaseMessage.msg = $user2.name + ' is more likely to get diseased than ' + $user1.name;
+    } else if (riskCount > 0) {
+      diseaseMessage.type = 'danger';
+      diseaseMessage.msg = $user1.name + ' is more likely to get diseased than ' + $user2.name;
+    } else {
+      diseaseMessage.msg = ' Both as likely to get diseased'
+    }
+
+    if(carrierCount < 0) {
+      carrierMessage.type = 'success';
+      carrierMessage.msg = $user2.name + ' has more inherited conditions than ' + $user1.name;
+    } else if (carrierCount > 0) {
+      carrierMessage.type = 'danger';
+      carrierMessage.msg = $user1.name + ' has more inherited conditions than ' + $user2.name;
+    } else {
+      carrierMessage.msg = ' Both have the same number of inherited conditions'
+    }
+
+
+    $scope.addAlert(diseaseMessage);
+    $scope.addAlert(carrierMessage);
 
     $scope.showTable = true;
   };

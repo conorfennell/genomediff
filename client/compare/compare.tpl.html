@@ -55,6 +55,11 @@
       </td>
     </tr>
   </table> -->
+  <!-- close="closeAlert($index)" -->
+
+  <div ng-show="showTable">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
+  </div>
 
   <div ng-show="showTable" id="container">
     <div id="row">

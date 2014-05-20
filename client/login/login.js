@@ -1,4 +1,4 @@
-angular.module('myApp.main.login', ['ui.router','angularCharts'])
+angular.module('myApp.main.login', ['ui.router'])
 
 .config(function ($stateProvider) {
 

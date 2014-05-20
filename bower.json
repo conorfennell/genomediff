@@ -6,6 +6,7 @@
     "angular": "*",
     "angular-cookies": "~1.2.16",
     "ng-Fx": "*",
-    "angular-ui-router": "*"
+    "angular-ui-router": "*",
+    "angular-bootstrap": "~0.11.0"
   }
 }
