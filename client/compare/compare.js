@@ -40,6 +40,8 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     var riskCount = 0;
     var carrierCount = 0;
 
+    $scope.showButton = false;
+
     for (var i = 0; i < $user1.risks.length; i++) {
       var firstWins = 'Equal';
       if(+$user1.risks[i].risk > +$user2.risks[i].risk) {
