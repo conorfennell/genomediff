@@ -84,15 +84,17 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     var diseaseMessage = {};
     var carrierMessage = {};
     var neanderthalMessage = {};
+    var heroinMessage = {};
+
 
     if(riskCount < 0) {
       diseaseMessage.type = 'success';
-      diseaseMessage.msg = $user2.name + ' is more likely to get diseased than ' + $user1.name;
+      diseaseMessage.msg = $user2.name + ' is more likely to get diseases than ' + $user1.name;
     } else if (riskCount > 0) {
       diseaseMessage.type = 'danger';
-      diseaseMessage.msg = $user1.name + ' is more likely to get diseased than ' + $user2.name;
+      diseaseMessage.msg = $user1.name + ' is more likely to get diseases than ' + $user2.name;
     } else {
-      diseaseMessage.msg = ' Both as likely to get diseased'
+      diseaseMessage.msg = ' Both as likely to get diseases'
     }
 
     if(carrierCount < 0) {
@@ -106,18 +108,25 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     }
     if (+$user1.neanderthal.proportion > +$user2.neanderthal.proportion) {
       var diff = +$user1.neanderthal.proportion - +$user2.neanderthal.proportion;
-      neanderthalMessage.msg = $user1.name + ' has ' + (diff*100).toFixed(2) + '% more neanderthal dna then ' + $user2.name;
+      neanderthalMessage.type = 'success';
+      neanderthalMessage.msg = $user1.name + ' is more rocking with ' + (diff*100).toFixed(2) + '% greater neanderthal dna than ' + $user2.name;
     } else  if (+$user1.neanderthal.proportion < +$user2.neanderthal.proportion) {
       diff = +$user2.neanderthal.proportion - +$user2.neanderthal.proportion;
-      neanderthalMessage.msg = $user2.name + ' has ' + (diff*100).toFixed(2) + '% more neanderthal dna then ' + $user1.name;
+      neanderthalMessage.type = 'danger';
+      neanderthalMessage.msg = $user2.name + ' is more rocking with ' + (diff*100).toFixed(2) + '% greater neanderthal dna than ' + $user1.name;
     } else{
       neanderthalMessage.msg = $user2.name + ' has  the same %  of neanderthal dna as ' + $user1.name;
 
     }
 
+    heroinMessage = {
+      msg : 'Both have the same odds of getting addicted to heroin'
+    }
+
     $scope.addAlert(neanderthalMessage);
     $scope.addAlert(diseaseMessage);
     $scope.addAlert(carrierMessage);
+    $scope.addAlert(heroinMessage);
 
     $scope.showTable = true;
   };

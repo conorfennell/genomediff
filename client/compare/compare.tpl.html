@@ -7,9 +7,13 @@
     </button>
     <img ng-show="showSpinner" src='styles/spinner.gif'> </gif>
 
-  <div ng-show="showTable">
+<div ng-show="showTable" class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Highlights</div>
+  <div >
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
   </div>
+</div>
 
   <div ng-show="showTable" id="container">
     <div id="row">
