@@ -1,6 +1,9 @@
 #messages {
   color: #d3d3d3;
 }
+body {
+  padding-top : 80px
+}
 
 table a:link {
 	color: #666;
@@ -100,11 +103,11 @@ table tr:hover td {
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
 }
 
-td.Win{
+td.Less{
   background: #d8f5c9;
   /*background-color: #6de340;*/
 }
 
-td.Lose{
+td.Higher{
   background: #f0cec3
 }

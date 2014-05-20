@@ -1,4 +1,4 @@
-angular.module('myApp.main.login', ['ui.router'])
+angular.module('myApp.main.login', ['ui.router','angularCharts'])
 
 .config(function ($stateProvider) {
 
@@ -10,5 +10,5 @@ angular.module('myApp.main.login', ['ui.router'])
     });
 })
 .controller('NoteController', function ($scope) {
-  $scope.notes = [];
+
 });
