@@ -16,6 +16,11 @@ module.exports = exports = {
         scope         : 'basic analyses'
       }
     }, function(error, response, body) {
+      if (req.cookies.token1 === undefined) {
+        res.cookie('token1', JSON.parse(body).access_token, { maxAge: 3000000 });
+      } else {
+        res.cookie('token2', JSON.parse(body).access_token, { maxAge: 3000000 });
+      }
       res.json(JSON.parse(body));
       res.end();
     });

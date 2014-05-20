@@ -1,28 +1,20 @@
 <div class='container-fluid'>
   <h1> login </h1>
   <section>
-    {{ name }}
+    {{ user1.name }}
 
 
   <div>
     <input ng-model='query' type='text' placeholder="Filter by">
-    <div ng-repeat='risk in risks | filter:{ description : query}'>
+    <div ng-repeat='risk in user1.risks | filter:{ description : query}'>
       {{risk.description}}
       {{risk.population_risk}}
       {{risk.risk}}
     </div>
   </div>
 
-
-
-
-
-
-<ul ui-sortable ng-model="items">
-  <li ng-repeat="risk in risks">{{ risk.description }}</li>
-</ul>
   <div>
-    <div ng-repeat='carrier in carriers'>
+    <div ng-repeat='carrier in user1.carriers'>
       {{carrier.description}}
       {{carrier.mutations}}
     </div>
