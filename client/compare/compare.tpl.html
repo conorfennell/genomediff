@@ -1,23 +1,65 @@
 <div class='container-fluid'>
   <h1> login </h1>
-  <section>
-    {{ user1.name }}
+  <section ng-model='combined'>
+
+  <table>
+    <tr>
+      <th>{{ user1.name }}</th>
+      <th>{{ user2.name }}</th>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <th> Description </th>
+            <th> Risk </th>
+          </tr>
+
+          <tr ng-repeat='risk in user1.risks'>
+            <td>{{risk.description}}</td>
+            <td>{{risk.risk}}</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <th> Description </th>
+            <th> Risk </th>
+          </tr>
+          <tr ng-repeat='risk in user2.risks'>
+            <td>{{risk.description}}</td>
+            <td>{{risk.risk}}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <button class="btn btn-default btn-sm" ng-click='combine(user1,user2,combined)'>
+  Battle data
+  </button>
+
+    <table cellspacing='0'>
+      <!-- Table Header -->
+      <thead>
+        <tr>
+          <th> Description </th>
+          <th> {{ user1.name }} Risk </th>
+          <th> {{ user2.name }} Risk </th>
+          <th> Winner </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='rask in combined.risks'>
+          <td class={{rask.firstWins}}>{{rask.description}}</td>
+          <td class={{rask.firstWins}}>{{rask.firstRisk * 100  | number : 2 }}%</td>
+          <td class={{rask.firstWins}}>{{rask.secondRisk * 100 | number : 2 }}%</td>
+          <td class={{rask.firstWins}}>{{rask.firstWins}}</td>
+        </tr>
+      </tbody>
+    </table>
 
 
-  <div>
-    <input ng-model='query' type='text' placeholder="Filter by">
-    <div ng-repeat='risk in user1.risks | filter:{ description : query}'>
-      {{risk.description}}
-      {{risk.population_risk}}
-      {{risk.risk}}
-    </div>
-  </div>
-
-  <div>
-    <div ng-repeat='carrier in user1.carriers'>
-      {{carrier.description}}
-      {{carrier.mutations}}
-    </div>
-  </div>
   </section>
 </div>
