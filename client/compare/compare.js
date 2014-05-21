@@ -14,6 +14,15 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
   $scope.showButton = false;
   $scope.showTable = false;
 
+  var map1 = new Datamap({
+    element: document.getElementById('container1'),
+  });
+
+  var map2 = new Datamap({
+    element: document.getElementById('container2'),
+  });
+
+
   $scope.user1 = {};
   $scope.user2 = {};
 
@@ -39,6 +48,21 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     var risk;
     var riskCount = 0;
     var carrierCount = 0;
+
+
+    map1.updateChoropleth({
+      IRL :'#0fa0fa',
+      GBR :'#0fa0fa',
+      FRA :'#0fa0fa',
+    });
+
+
+    map2.updateChoropleth({
+      IRL :'#0fa0fa',
+      GBR :'#0fa0fa',
+      FIN :'#0fa0fa',
+      POL :'#0fa0fa'
+    });
 
     $scope.showButton = false;
 
@@ -85,24 +109,26 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     var carrierMessage = {};
     var neanderthalMessage = {};
     var heroinMessage = {};
+    var livingto100Message = {};
+
 
 
     if(riskCount < 0) {
       diseaseMessage.type = 'success';
-      diseaseMessage.msg = $user2.name + ' is more likely to get diseases than ' + $user1.name;
+      diseaseMessage.msg = $user1.name + ' is less prone to diseases than ' + $user2.name;
     } else if (riskCount > 0) {
       diseaseMessage.type = 'danger';
-      diseaseMessage.msg = $user1.name + ' is more likely to get diseases than ' + $user2.name;
+      diseaseMessage.msg = $user2.name + ' is less prone to diseases than ' + $user1.name;
     } else {
-      diseaseMessage.msg = ' Both as likely to get diseases'
+      diseaseMessage.msg = ' Both as likely to get diseased'
     }
 
     if(carrierCount < 0) {
       carrierMessage.type = 'success';
-      carrierMessage.msg = $user2.name + ' has more inherited conditions than ' + $user1.name;
+      carrierMessage.msg = $user1.name + ' has less inherited conditions than ' + $user2.name;
     } else if (carrierCount > 0) {
       carrierMessage.type = 'danger';
-      carrierMessage.msg = $user1.name + ' has more inherited conditions than ' + $user2.name;
+      carrierMessage.msg = $user2.name + ' has less inherited conditions than ' + $user1.name;
     } else {
       carrierMessage.msg = ' Both have the same number of inherited conditions'
     }
@@ -123,10 +149,16 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
       msg : 'Both have the same odds of getting addicted to heroin'
     }
 
+    livingto100Message = {
+      type  : 'success',
+      msg   : $user1.name + ' is more likely to live to 100 than ' + $user2.name
+    }
+
     $scope.addAlert(neanderthalMessage);
     $scope.addAlert(diseaseMessage);
     $scope.addAlert(carrierMessage);
     $scope.addAlert(heroinMessage);
+    $scope.addAlert(livingto100Message);
 
     $scope.showTable = true;
   };
@@ -142,6 +174,7 @@ var endPoints = {
   carriers       : '/user/carriers/',
   drug_responses : '/user/drug_responses/',
   neanderthal    : '/user/neanderthal/',
+  ancestry       : '/user/ancestry/',
   traits         : '/user/traits/'
 };
 
@@ -188,6 +221,11 @@ var getUserData = function(token, $http, $user, $scope){
       $http.get(endPoints.neanderthal + '?token=' + token + '&profileId=' + profileId  )
         .then(function(result){
           $user.neanderthal = result.data.neanderthal;
+        });
+
+      $http.get(endPoints.ancestry + '?token=' + token + '&profileId=' + profileId  )
+        .then(function(result){
+          $user.ancestry = result.data.ancestry;
         });
 
       $http.get(endPoints.traits + '?token=' + token + '&profileId=' + profileId  )

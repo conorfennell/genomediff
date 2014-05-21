@@ -1,0 +1,114 @@
+{ "ancestry" : { "label" : "Total",
+      "proportion" : 1.0,
+      "sub_populations" : [ { "label" : "European",
+            "proportion" : 0.99929999999999997,
+            "sub_populations" : [ { "label" : "Northern European",
+                  "proportion" : 0.98899999999999999,
+                  "sub_populations" : [ { "label" : "British & Irish",
+                        "proportion" : 0.88119999999999998
+                      },
+                      { "label" : "Scandinavian",
+                        "proportion" : 0.0064000000000000003
+                      },
+                      { "label" : "French & German",
+                        "proportion" : 0.0058999999999999999
+                      },
+                      { "label" : "Finnish",
+                        "proportion" : 0.0
+                      }
+                    ],
+                  "unassigned" : 0.095600000000000004
+                },
+                { "label" : "Eastern European",
+                  "proportion" : 0.0083999999999999995
+                },
+                { "label" : "Ashkenazi",
+                  "proportion" : 0.0
+                },
+                { "label" : "Southern European",
+                  "proportion" : 0.0,
+                  "sub_populations" : [ { "label" : "Balkan",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Iberian",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Italian",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Sardinian",
+                        "proportion" : 0.0
+                      }
+                    ],
+                  "unassigned" : 0.0
+                }
+              ],
+            "unassigned" : 0.0019
+          },
+          { "label" : "Sub-Saharan African",
+            "proportion" : 0.00069999999999999999,
+            "sub_populations" : [ { "label" : "Central & South African",
+                  "proportion" : 0.00069999999999999999
+                },
+                { "label" : "East African",
+                  "proportion" : 0.0
+                },
+                { "label" : "West African",
+                  "proportion" : 0.0
+                }
+              ],
+            "unassigned" : 0.0
+          },
+          { "label" : "Oceanian",
+            "proportion" : 0.0
+          },
+          { "label" : "East Asian & Native American",
+            "proportion" : 0.0,
+            "sub_populations" : [ { "label" : "Native American",
+                  "proportion" : 0.0
+                },
+                { "label" : "Southeast Asian",
+                  "proportion" : 0.0
+                },
+                { "label" : "East Asian",
+                  "proportion" : 0.0,
+                  "sub_populations" : [ { "label" : "Chinese",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Mongolian",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Yakut",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Korean",
+                        "proportion" : 0.0
+                      },
+                      { "label" : "Japanese",
+                        "proportion" : 0.0
+                      }
+                    ],
+                  "unassigned" : 0.0
+                }
+              ],
+            "unassigned" : 0.0
+          },
+          { "label" : "South Asian",
+            "proportion" : 0.0
+          },
+          { "label" : "Middle Eastern & North African",
+            "proportion" : 0.0,
+            "sub_populations" : [ { "label" : "North African",
+                  "proportion" : 0.0
+                },
+                { "label" : "Middle Eastern",
+                  "proportion" : 0.0
+                }
+              ],
+            "unassigned" : 0.0
+          }
+        ],
+      "unassigned" : 0.0001
+    },
+  "id" : "1bcedbb0daf7a48d"
+}

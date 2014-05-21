@@ -23,4 +23,8 @@ module.exports = exports = function (router) {
 
   router.route('/neanderthal/')
     .get(controller.getNeanderthal);
+
+  router.route('/ancestry/')
+    .get(controller.getAncestry);
+
 };

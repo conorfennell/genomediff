@@ -7,6 +7,8 @@
     "angular-cookies": "~1.2.16",
     "ng-Fx": "*",
     "angular-ui-router": "*",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "d3": "~3.4.8",
+    "topojson": "~1.6.13"
   }
 }

@@ -5,15 +5,39 @@
     <button ng-show="showButton" class="btn btn-default btn-sm" ng-click='combine(user1,user2,combined)'>
     Compare genes
     </button>
-    <img ng-show="showSpinner" src='styles/spinner.gif'> </gif>
+    <img ng-show="showSpinner" src='styles/spinner.gif'> </img>
 
-<div ng-show="showTable" class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Highlights</div>
-  <div >
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
+  <div ng-show="showTable" id="container">
+    <div id="row">
+      <div id="left">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{user1.name}} ancestry map</div>
+            <div >
+              <div id="container1" style="position: relative; width: 500px; height: 300px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="right">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{user2.name}} ancestry map</div>
+            <div >
+              <div id="container2" style="position: relative; width: 500px; height: 300px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div ng-show="showTable" class="panel panel-default">
+    <!-- Default panel contents -->
+
+    <div class="panel-heading">Highlights</div>
+      <div >
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
+      </div>
+    </div>
 
   <div ng-show="showTable" id="container">
     <div id="row">
