@@ -4,9 +4,7 @@
   "dependencies": {
     "express": "*",
     "mongoose": "*",
-    "q": "*",
-    "cookie-parser": "^1.1.0",
-    "request": "^2.35.0"
+    "q": "*"
   },
   "devDependencies": {
     "gulp": "*",

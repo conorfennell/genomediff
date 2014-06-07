@@ -22,14 +22,9 @@ angular.module('myApp.main.compare', ['ui.router', 'ngCookies', 'ui.bootstrap'])
     element: document.getElementById('container2'),
   });
 
-
   $scope.user1 = {};
   $scope.user2 = {};
-
-
-  $scope.alerts = [
-
-  ];
+  $scope.alerts = [];
 
   $scope.addAlert = function(msg) {
     $scope.alerts.push(msg);
